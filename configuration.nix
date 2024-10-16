@@ -172,6 +172,7 @@
     neovim
     trezor-suite
     trezorctl
+    p7zip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
