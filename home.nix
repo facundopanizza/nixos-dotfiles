@@ -44,6 +44,7 @@
 				};
 				size = 12;
 			};
+
 			colors = {
 				primary = {
 					background = "#24273a";

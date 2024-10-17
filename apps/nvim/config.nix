@@ -92,8 +92,14 @@
         eob = " ";
       };
     };
-   
-    colorschemes.catppuccin.enable = true;
+
+    colorschemes.catppuccin = {
+      enable = true;
+
+      settings = {
+        flavour = "macchiato";
+      };
+    };
   };
 }
 

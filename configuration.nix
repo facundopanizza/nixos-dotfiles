@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # ./apps/nvim
+      ./apps/nvim
       inputs.home-manager.nixosModules.default
     ];
 
@@ -19,6 +19,11 @@
   networking.hostName = "nixos"; # Define your hostname.
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  # Allow to execute binaries
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+  ];
 
   services = {
     trezord = {
@@ -172,7 +177,6 @@
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
     git
-    neovim
     trezor-suite
     trezorctl
     p7zip

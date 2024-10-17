@@ -1,7 +1,7 @@
 {
   programs.nixvim.plugins = {
     bufferline.enable = true;
-    web-devicons.enable = true;
+    # web-devicons.enable = true;
    
     telescope.enable = true;
     oil.enable = true;
@@ -12,8 +12,8 @@
     lsp = {
       enable = true;
       servers = {
-        ts_ls.enable = true;
-        lua_ls.enable = true;
+        # ts_ls.enable = true;
+        lua-ls.enable = true;
       };
     };
    
