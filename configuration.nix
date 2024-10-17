@@ -25,6 +25,8 @@
   programs.nix-ld.libraries = with pkgs; [
   ];
 
+  virtualisation.docker.enable = true;
+
   services = {
     trezord = {
       enable = true;
@@ -167,7 +169,7 @@
     users.facundo = {
       isNormalUser = true;
       description = "Facundo";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" ];
       packages = with pkgs; [];
     };
   };

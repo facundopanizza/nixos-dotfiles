@@ -23,6 +23,8 @@
       mysql
       dbeaver-bin
       mongodb-compass
+      lazydocker
+      lazygit
   ];
 
 # basic configuration of git, please change to your own
