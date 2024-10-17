@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, unstablePkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -101,7 +101,7 @@
   services.printing.enable = true;
 
   # Nvidia drivers
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
   };
 
@@ -175,7 +175,6 @@
       isNormalUser = true;
       description = "Facundo";
       extraGroups = [ "networkmanager" "wheel" "docker" ];
-      packages = with pkgs; [];
     };
   };
 
@@ -202,7 +201,7 @@
     trezorctl
     p7zip
     vscode
-    unstablePkgs.code-cursor
+    code-cursor
     kitty
     waybar
     dunst
