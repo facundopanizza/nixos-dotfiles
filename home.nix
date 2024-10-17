@@ -146,8 +146,8 @@
 
 		shellAliases = {
 			n = "nvim";
-			update = "sudo nixos-rebuild switch --flake";
-			upgrade = "nix flake update"
+			update = "sudo nixos-rebuild switch --flake .";
+			upgrade = "nix flake update";
 		};
 		history = {
 			size = 10000;
