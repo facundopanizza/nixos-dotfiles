@@ -86,6 +86,11 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -161,10 +166,10 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   users = {
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.fish;
 
     users.facundo = {
       isNormalUser = true;
@@ -198,7 +203,17 @@
     p7zip
     vscode
     unstablePkgs.code-cursor
+    kitty
+    waybar
+    dunst
+    libnotify
+    swww
+    rofi-wayland
+    networkmanagerapplet
   ];
+
+#  xdg.portal.enable = true;
+#  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };

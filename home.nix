@@ -6,6 +6,25 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  wayland.windowManager.hyprland.settings = {
+    bind = [
+      "SUPER, W, exec, alacritty"
+    ];
+  };
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      test -z $ZELLIJ; and zellij;
+      set fish_greeting
+    '';
+    shellAliases = {
+      n = "nvim";
+      update = "sudo nixos-rebuild switch --flake .";
+      upgrade = "nix flake update";
+    };
+  };
+
 # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     neofetch
@@ -25,6 +44,7 @@
       mongodb-compass
       lazydocker
       lazygit
+      devbox
   ];
 
 # basic configuration of git, please change to your own
@@ -36,7 +56,8 @@
 
   programs.zellij = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
+
     settings = {
       theme = "catppuccin-macchiato";
     };
@@ -145,34 +166,6 @@
 
       scrolling.multiplier = 5;
       selection.save_to_clipboard = true;
-    };
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      n = "nvim";
-      update = "sudo nixos-rebuild switch --flake .";
-      upgrade = "nix flake update";
-    };
-    history = {
-      size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
-    };
-    zplug = {
-      enable = true;
-      plugins = [
-      { name = "zsh-users/zsh-syntax-highlighting"; }
-      { name = "zsh-users/zsh-autosuggestions"; }
-      { name = "zsh-users/zsh-completions"; }
-      { name = "zsh-users/zsh-history-substring-search"; }
-      { name = "Aloxaf/fzf-tab"; }
-      { name = "themes/robbyrussell"; tags = [ as:theme from:oh-my-zsh ]; }
-      ];
     };
   };
 
