@@ -4,7 +4,9 @@
 	home.username = "facundo";
 	home.homeDirectory = "/home/facundo";
 
-# Packages that should be installed to the user profile.
+	nixpkgs.config.allowUnfree = true;
+
+	# Packages that should be installed to the user profile.
 	home.packages = with pkgs; [
 		neofetch
 			eza

@@ -33,7 +33,6 @@
 
         modules = [
           ./configuration.nix
-          # inputs.home-manager.nixosModules.default
         ];
 
         specialArgs = { 
