@@ -209,6 +209,7 @@
     swww
     rofi-wayland
     networkmanagerapplet
+    brightnessctl
   ];
 
 #  xdg.portal.enable = true;
