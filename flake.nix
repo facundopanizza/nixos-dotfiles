@@ -11,7 +11,7 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -26,6 +26,7 @@
           allowUnfree = true;
         };
       };
+
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -33,6 +34,7 @@
 
         modules = [
           ./configuration.nix
+          nixvim.nixosModules.nixvim
         ];
 
         specialArgs = { 
