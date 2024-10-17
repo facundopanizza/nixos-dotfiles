@@ -1,10 +1,16 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./apps/hyprland
+  ];
+
   home.username = "facundo";
   home.homeDirectory = "/home/facundo";
 
   nixpkgs.config.allowUnfree = true;
+
+  home.file.".config/hypr/hyprland.conf".source = ./apps/hyprland/hyprland.conf;
 
   wayland.windowManager.hyprland.settings = {
     bind = [
