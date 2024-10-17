@@ -30,20 +30,20 @@
       enable = true;
     };
     udev.packages = with pkgs; [ trezor-udev-rules ];
-
-    postgresql = {
-      enable = true;
-      enableTCPIP = true;
-      authentication = pkgs.lib.mkOverride 10 ''
-#...
-#type database DBuser origin-address auth-method
-# ipv4
-        host  all      all     127.0.0.1/32   trust
-# ipv6
-        host all       all     ::1/128        trust
-        '';
-
-    };
+ 
+#    postgresql = {
+#      enable = true;
+#      enableTCPIP = true;
+#      authentication = pkgs.lib.mkOverride 10 ''
+# ...
+# type database DBuser origin-address auth-method
+#  ipv4
+#        host  all      all     127.0.0.1/32   trust
+#  ipv6
+#        host all       all     ::1/128        trust
+#        '';
+# 
+#    };
   };
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

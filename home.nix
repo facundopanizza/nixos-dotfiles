@@ -35,6 +35,9 @@
   programs.zellij = {
     enable = true;
     enableZshIntegration = true;
+    settings = {
+      theme = "catppuccin-macchiato";
+    };
   };
 
 # alacritty - a cross-platform, GPU-accelerated terminal emulator
