@@ -11,6 +11,9 @@
   nixpkgs.config.allowUnfree = true;
 
   home.file.".config/hypr/hyprland.conf".source = ./apps/hyprland/hyprland.conf;
+  home.file.".config/kitty/kitty.conf".source = ./apps/kitty/kitty.conf;
+  home.file.".config/kitty/themes".source = ./apps/kitty/themes;
+
 
   wayland.windowManager.hyprland.settings = {
     bind = [
@@ -30,12 +33,16 @@
       upgrade = "nix flake update";
       sshlightit = "cp ~/.ssh/lightit/* ~/.ssh";
       sshmain = "cp ~/.ssh/main/* ~/.ssh";
+      sf = "cd ~/code/spacedev/swordfish";
+      ls = "eza -lh --icons --group-directories-first";
+      neofetch = ''kitten icat & neofetch --kitty "~/.dotfiles/apps/neofetch/images/Makima-nixos.png"'';
+#      kitty = "kitty +kitten themes --reload-in=all Catppuccin-Macchiato";
     };
   };
 
 # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    neofetch
+      neofetch
       eza
       fzf
       qbittorrent
@@ -52,7 +59,10 @@
       mongodb-compass
       lazydocker
       lazygit
+      hyprshot
       devbox
+      localsend
+      imagemagick
   ];
 
 # basic configuration of git, please change to your own
