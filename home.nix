@@ -28,6 +28,8 @@
       n = "nvim";
       update = "sudo nixos-rebuild switch --flake .";
       upgrade = "nix flake update";
+      sshlightit = "cp ~/.ssh/lightit/* ~/.ssh";
+      sshmain = "cp ~/.ssh/main/* ~/.ssh";
     };
   };
 
