@@ -9,15 +9,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-alien.url = "github:thiagokokada/nix-alien";
+
+    stylix.url = "github:danth/stylix";
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixvim, ... }@inputs: 
+  outputs = { nixpkgs, home-manager, nixvim, stylix, ... }@inputs: 
     let
       system = "x86_64-linux";
+
+      nixalien = inputs.nix-alien.packages.${system};
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -26,10 +32,13 @@
         modules = [
           ./configuration.nix
           nixvim.nixosModules.nixvim
+          stylix.nixosModules.stylix
         ];
 
         specialArgs = { 
           inherit inputs;
+          nixalien = nixalien;
+          stylix = stylix;
         };
       };
     };

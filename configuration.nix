@@ -9,6 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./apps/nvim
+      ./apps/nix-alien
+      ./apps/stylix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -23,6 +25,7 @@
   # Allow to execute binaries
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
+    glfw
   ];
 
   virtualisation.docker.enable = true;

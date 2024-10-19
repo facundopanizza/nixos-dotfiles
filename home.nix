@@ -77,7 +77,7 @@
     enableFishIntegration = true;
 
     settings = {
-      theme = "catppuccin-macchiato";
+      # theme = "catppuccin-macchiato";
     };
   };
 
