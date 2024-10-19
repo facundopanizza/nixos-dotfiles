@@ -34,12 +34,14 @@
 
   virtualisation.docker.enable = true;
 
-    # Enable automatic garbage collection
+  # Enable automatic garbage collection
   nix.gc.automatic = true;
 
-  # Set the maximum age for generations to 15 days
+  # Run garbage collection daily
   nix.gc.dates = "daily";
-  nix.gc.options = "--delete-older-than 15d";
+
+  # Remove generations older than 15 days, but keep at least 5
+  nix.gc.options = "--delete-older-than 15d --keep-generations 5";
 
   services = {
     trezord = {
