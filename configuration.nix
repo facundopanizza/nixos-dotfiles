@@ -25,10 +25,21 @@
   # Allow to execute binaries
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    glfw
   ];
 
+  programs.localsend = {
+    enable = true;
+    openFirewall = true;
+  };
+
   virtualisation.docker.enable = true;
+
+    # Enable automatic garbage collection
+  nix.gc.automatic = true;
+
+  # Set the maximum age for generations to 15 days
+  nix.gc.dates = "daily";
+  nix.gc.options = "--delete-older-than 15d";
 
   services = {
     trezord = {

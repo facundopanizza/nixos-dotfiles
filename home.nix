@@ -61,9 +61,9 @@
       lazygit
       hyprshot
       devbox
-      localsend
       imagemagick
       loupe
+      whatsapp-for-linux
   ];
 
 # basic configuration of git, please change to your own
