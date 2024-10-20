@@ -12,7 +12,7 @@
   nixpkgs.config.allowUnfree = true;
 
   home.file.".config/hypr/hyprland.conf".source = ./apps/hyprland/hyprland.conf;
-#  home.file.".config/kitty/kitty.conf".source = ./apps/kitty/kitty.conf;
+  home.file.".config/kitty/kitty.conf".source = ./apps/kitty/kitty.conf;
 #  home.file.".config/kitty/themes".source = ./apps/kitty/themes;
 
   wayland.windowManager.hyprland.settings = {
@@ -64,6 +64,9 @@
       imagemagick
       loupe
       whatsapp-for-linux
+      davinci-resolve
+      obs-studio
+      anki
   ];
 
 # basic configuration of git, please change to your own
@@ -78,7 +81,7 @@
     enableFishIntegration = true;
 
     settings = {
-      # theme = "catppuccin-macchiato";
+#      theme = "catppuccin-macchiato";
     };
   };
 
