@@ -21,6 +21,12 @@
     ];
   };
 
+  gtk.cursorTheme = {
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+    size = 24;
+  };
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -67,6 +73,7 @@
       davinci-resolve
       obs-studio
       anki
+      nwg-look
   ];
 
 # basic configuration of git, please change to your own

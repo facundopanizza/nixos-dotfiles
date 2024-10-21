@@ -8,4 +8,6 @@ nm-applit --indicator &
 
 waybar &
 
-dunst
+dunst &
+
+hyprctl setcursor Bibata-Modern-Ice 24
