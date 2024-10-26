@@ -60,7 +60,6 @@
       gimp
       kdePackages.kdenlive
       handbrake
-      mysql
       dbeaver-bin
       mongodb-compass
       lazydocker
