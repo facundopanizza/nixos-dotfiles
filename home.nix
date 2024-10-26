@@ -52,7 +52,7 @@
       eza
       fzf
       qbittorrent
-      discord
+      vesktop
       google-chrome
       mattermost-desktop
       zoom-us
@@ -74,6 +74,8 @@
       obs-studio
       anki
       nwg-look
+      insomnia
+      dolphin
   ];
 
 # basic configuration of git, please change to your own
