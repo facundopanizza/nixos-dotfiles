@@ -140,6 +140,8 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+   hardware.nvidia-container-toolkit.enable = true;
+
   hardware.nvidia.prime = {
     sync.enable = true;
     intelBusId = "PCI:0:2:0";

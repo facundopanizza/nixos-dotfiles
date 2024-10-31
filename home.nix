@@ -42,8 +42,10 @@
       sf = "cd ~/code/spacedev/swordfish";
       ls = "eza -lh --icons --group-directories-first";
       neofetch = ''kitten icat & neofetch --kitty "~/.dotfiles/apps/neofetch/images/Makima-nixos.png"'';
+      kamal=''docker run -it --rm -v "''$PWD:/workdir" -v "''$SSH_AUTH_SOCK:/ssh-agent" -v /var/run/docker.sock:/var/run/docker.sock -e "SSH_AUTH_SOCK=/ssh-agent" ghcr.io/basecamp/kamal:latest'';
 #      kitty = "kitty +kitten themes --reload-in=all Catppuccin-Macchiato";
     };
+
   };
 
 # Packages that should be installed to the user profile.
@@ -75,6 +77,8 @@
       nwg-look
       insomnia
       dolphin
+      audacity
+      nodejs
   ];
 
 # basic configuration of git, please change to your own
