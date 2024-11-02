@@ -2,7 +2,7 @@
 
 {
   stylix = {
-    image = ../../wallpapers/anime-purple.jpg;
+    image = ../../wallpapers/1337277.jpeg;
 
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";

@@ -2,7 +2,7 @@
 
 swww init &
 
-swww img ~/Wallpapers/anime-purple.jpg &
+swww img ~/Wallpapers/1337277.jpeg &
 
 nm-applit --indicator &
 
