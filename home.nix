@@ -14,6 +14,7 @@
 
   home.file.".config/hypr/hyprland.conf".source = ./apps/hyprland/hyprland.conf;
   home.file.".config/kitty/kitty.conf".source = ./apps/kitty/kitty.conf;
+  home.file."Wallpapers".source = ./wallpapers;
 #  home.file.".config/kitty/themes".source = ./apps/kitty/themes;
 
   wayland.windowManager.hyprland.settings = {
