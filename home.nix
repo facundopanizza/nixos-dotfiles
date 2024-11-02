@@ -4,6 +4,7 @@
   imports = [
     ./apps/hyprland
     ./apps/kitty
+    ./apps/waybar
   ];
 
   home.username = "facundo";
@@ -45,8 +46,25 @@
       kamal=''docker run -it --rm -v "''$PWD:/workdir" -v "''$SSH_AUTH_SOCK:/ssh-agent" -v /var/run/docker.sock:/var/run/docker.sock -e "SSH_AUTH_SOCK=/ssh-agent" ghcr.io/basecamp/kamal:latest'';
 #      kitty = "kitty +kitten themes --reload-in=all Catppuccin-Macchiato";
     };
-
+#    plugins = [
+#      {
+#        name = "fish-ssh-agent";
+#        src = pkgs.fetchFromGitHub {
+#          owner = "jethrokuan";
+#          repo = "fish-ssh-agent";
+#          rev = "ddeb28a7b6a1f0ec6dae40c636e5ca4908ad160a";
+#          sha256 = "1h10jgnml12bxgp7inz8v8mzh7v9740wig3gpifx8lryipsy2fqs";
+#        };
+#      }
+#    ];
   };
+
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "yes";
+  };
+
+  services.ssh-agent.enable = true;
 
 # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -79,6 +97,9 @@
       dolphin
       audacity
       nodejs
+      screen
+      postgresql # Only for the client
+      mariadb # Only for the client
   ];
 
 # basic configuration of git, please change to your own

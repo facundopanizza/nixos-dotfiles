@@ -11,6 +11,7 @@
       ./apps/nvim
       ./apps/nix-alien
       ./apps/stylix
+      ./apps/docker
       inputs.home-manager.nixosModules.default
     ];
 
@@ -31,8 +32,6 @@
     enable = true;
     openFirewall = true;
   };
-
-  virtualisation.docker.enable = true;
 
   # Enable automatic garbage collection
   nix.gc.automatic = true;
@@ -140,7 +139,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-   hardware.nvidia-container-toolkit.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
   hardware.nvidia.prime = {
     sync.enable = true;

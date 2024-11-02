@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    restart: always
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:ollama
+    ports:
+      - "5555:8080"
+    volumes:
+      - ollama:/root/.ollama
+      - open-webui:/app/backend/data
+    devices:
+      # - nvidia.com/gpu=all
+      - /dev/nvidia0:/dev/nvidia0
+    restart: always
+
+volumes:
+  postgres_data:
+  mysql_data:
+  ollama:
+  open-webui:
