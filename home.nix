@@ -45,6 +45,9 @@
       ls = "eza -lh --icons --group-directories-first";
       neofetch = ''kitten icat & neofetch --kitty "~/.dotfiles/apps/neofetch/images/Makima-nixos.png"'';
       kamal=''docker run -it --rm -v "''$PWD:/workdir" -v "''$SSH_AUTH_SOCK:/ssh-agent" -v /var/run/docker.sock:/var/run/docker.sock -e "SSH_AUTH_SOCK=/ssh-agent" ghcr.io/basecamp/kamal:latest'';
+      newdirenv = ''curl "https://gist.githubusercontent.com/facundopanizza/d9158d9c3e9583853455a0017887e240/raw/flake.nix" -o flake.nix && echo "use flake" >> .envrc && direnv allow'';
+      nde = ''curl "https://gist.githubusercontent.com/facundopanizza/d9158d9c3e9583853455a0017887e240/raw/flake.nix" -o flake.nix && echo "use flake" >> .envrc && direnv allow'';
+      nenv = ''curl "https://gist.githubusercontent.com/facundopanizza/d9158d9c3e9583853455a0017887e240/raw/flake.nix" -o flake.nix && echo "use flake" >> .envrc && direnv allow'';
 #      kitty = "kitty +kitten themes --reload-in=all Catppuccin-Macchiato";
     };
 #    plugins = [
@@ -74,7 +77,7 @@
       fzf
       qbittorrent
       vesktop
-      google-chrome
+      brave
       mattermost-desktop
       zoom-us
       obs-studio
@@ -101,6 +104,9 @@
       screen
       postgresql # Only for the client
       mariadb # Only for the client
+      direnv
+      wine
+      winetricks
   ];
 
 # basic configuration of git, please change to your own
@@ -121,7 +127,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    BROWSER = "firefox";
+    BROWSER = "brave";
     TERMINAL = "alacritty";
   };
 
