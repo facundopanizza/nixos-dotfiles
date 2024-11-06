@@ -5,6 +5,7 @@
     ./apps/hyprland
     ./apps/kitty
     ./apps/waybar
+    ./apps/rofi
   ];
 
   home.username = "facundo";
@@ -107,6 +108,11 @@
       direnv
       wine
       winetricks
+      persepolis
+      lutris
+      protonplus
+      libreoffice-qt6
+      zathura
   ];
 
 # basic configuration of git, please change to your own
