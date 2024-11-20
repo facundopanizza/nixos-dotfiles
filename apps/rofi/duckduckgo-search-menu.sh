@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get search query from user via Rofi
-query=$(rofi -dmenu -i -p "Search DuckDuckGo:")
+query=$(rofi -dmenu -i -p "Search DuckDuckGo")
 
 # If a query was entered, search DuckDuckGo using Brave
 if [ -n "$query" ]; then

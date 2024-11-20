@@ -49,6 +49,7 @@
       newdirenv = ''curl "https://gist.githubusercontent.com/facundopanizza/d9158d9c3e9583853455a0017887e240/raw/flake.nix" -o flake.nix && echo "use flake" >> .envrc && direnv allow'';
       nde = ''curl "https://gist.githubusercontent.com/facundopanizza/d9158d9c3e9583853455a0017887e240/raw/flake.nix" -o flake.nix && echo "use flake" >> .envrc && direnv allow'';
       nenv = ''curl "https://gist.githubusercontent.com/facundopanizza/d9158d9c3e9583853455a0017887e240/raw/flake.nix" -o flake.nix && echo "use flake" >> .envrc && direnv allow'';
+      htop = "btop";
 #      kitty = "kitty +kitten themes --reload-in=all Catppuccin-Macchiato";
     };
 #    plugins = [
@@ -113,6 +114,9 @@
       protonplus
       libreoffice-qt6
       zathura
+      btop
+      openssl
+      squirreldisk
   ];
 
 # basic configuration of git, please change to your own
