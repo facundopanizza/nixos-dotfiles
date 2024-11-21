@@ -44,7 +44,7 @@
       sshmain = "cp ~/.ssh/main/* ~/.ssh";
       sf = "cd ~/code/spacedev/swordfish";
       ls = "eza -lh --icons --group-directories-first";
-      neofetch = ''kitten icat & neofetch --kitty "~/.dotfiles/apps/neofetch/images/Makima-nixos.png"'';
+      # neofetch = ''kitten icat & neofetch --kitty "~/.dotfiles/apps/neofetch/images/Makima-nixos.png"'';
       kamal=''docker run -it --rm -v "''$PWD:/workdir" -v "''$SSH_AUTH_SOCK:/ssh-agent" -v /var/run/docker.sock:/var/run/docker.sock -e "SSH_AUTH_SOCK=/ssh-agent" ghcr.io/basecamp/kamal:latest'';
       newdirenv = ''curl "https://gist.githubusercontent.com/facundopanizza/d9158d9c3e9583853455a0017887e240/raw/flake.nix" -o flake.nix && echo "use flake" >> .envrc && direnv allow'';
       nde = ''curl "https://gist.githubusercontent.com/facundopanizza/d9158d9c3e9583853455a0017887e240/raw/flake.nix" -o flake.nix && echo "use flake" >> .envrc && direnv allow'';
