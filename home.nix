@@ -117,6 +117,7 @@
       btop
       openssl
       squirreldisk
+      stremio
   ];
 
 # basic configuration of git, please change to your own
