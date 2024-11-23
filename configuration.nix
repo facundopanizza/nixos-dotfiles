@@ -16,8 +16,6 @@
     ];
 
   # Bootloader.
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -35,6 +33,20 @@
     openFirewall = true;
   };
 
+  # Theme dark for apps
+  environment.variables = {
+    # GTK apps (e.g., Firefox, GNOME apps)
+    GTK_THEME = "Adwaita-dark";    # Use "Adwaita" for light theme, "Adwaita-dark" for dark theme.
+    
+    # Qt apps (e.g., VLC, QtCreator)
+    QT_QPA_PLATFORMTHEME = "qt5ct";    # Use qt5ct for better Qt theming.
+    QT_STYLE_OVERRIDE = "kvantum-dark"; # Replace with your preferred Qt style.
+    
+    # Wayland applications that support dark mode
+    XDG_CURRENT_DESKTOP = "Hyprland"; # Inform apps about the desktop environment.
+    GDK_BACKEND = "wayland";          # Use Wayland for GTK apps.
+  };
+
   # Enable automatic garbage collection
   nix.gc.automatic = true;
 
@@ -49,6 +61,7 @@
       enable = true;
     };
     udev.packages = with pkgs; [ trezor-udev-rules ];
+    udisks2.enable = true; # Auto mount disks
   };
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

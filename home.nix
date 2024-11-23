@@ -100,7 +100,16 @@
       anki
       nwg-look
       insomnia
-      dolphin
+
+      # For dolphin
+      kdePackages.dolphin
+      kdePackages.qtwayland
+      kdePackages.qtsvg
+      kdePackages.kio-fuse
+      kdePackages.kio-extras
+      ark # File extractor for dolphin
+      # End for Dolphin
+
       audacity
       nodejs
       screen
@@ -118,6 +127,7 @@
       openssl
       squirreldisk
       stremio
+      mpv
   ];
 
 # basic configuration of git, please change to your own
