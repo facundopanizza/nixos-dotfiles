@@ -23,6 +23,11 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  # enables support for Bluetooth # enables support for Bluetooth
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  services.blueman.enable = true;
+
   # Allow to execute binaries
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
