@@ -28,6 +28,11 @@
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
 
+  networking.nameservers = [
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
+
   # Allow to execute binaries
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
@@ -76,7 +81,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    nerd-fonts.fira-code 
   ];
 
   # Enable networking

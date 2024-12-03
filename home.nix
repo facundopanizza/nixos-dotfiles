@@ -128,6 +128,9 @@
       squirreldisk
       stremio
       mpv
+      heroic
+      terraform
+      morgen
   ];
 
 # basic configuration of git, please change to your own
