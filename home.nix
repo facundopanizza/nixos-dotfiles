@@ -6,6 +6,7 @@
     ./apps/kitty
     ./apps/waybar
     ./apps/rofi
+    ./apps/gcloud
   ];
 
   home.username = "facundo";
@@ -70,6 +71,8 @@
     addKeysToAgent = "yes";
   };
 
+  programs.looking-glass-client.enable = true;
+
   services.ssh-agent.enable = true;
 
 # Packages that should be installed to the user profile.
@@ -131,6 +134,9 @@
       heroic
       terraform
       morgen
+      pciutils
+      gparted
+      kubectl
   ];
 
 # basic configuration of git, please change to your own

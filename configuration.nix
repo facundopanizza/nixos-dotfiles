@@ -12,12 +12,22 @@
       ./apps/nix-alien
       ./apps/stylix
       ./apps/docker
+      ./apps/gpu-passthrough
       inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  systemd.tmpfiles.rules = [
+    "f /dev/shm/looking-glass 0660 facundo qemu-libvirtd -"
+  ];
+
+  specialisation."VFIO".configuration = {
+    system.nixos.tags = [ "with-vfio" ];
+    vfio.enable = true;
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
 
@@ -199,7 +209,7 @@
     users.facundo = {
       isNormalUser = true;
       description = "Facundo";
-      extraGroups = [ "networkmanager" "wheel" "docker" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     };
   };
 
@@ -234,6 +244,9 @@
     brightnessctl
     bibata-cursors
   ];
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
 #  xdg.portal.enable = true;
 #  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
