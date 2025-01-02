@@ -71,7 +71,7 @@
     addKeysToAgent = "yes";
   };
 
-  programs.looking-glass-client.enable = true;
+#  programs.looking-glass-client.enable = true;
 
   services.ssh-agent.enable = true;
 
@@ -137,6 +137,8 @@
       pciutils
       gparted
       kubectl
+      slack
+      orca-slicer
   ];
 
 # basic configuration of git, please change to your own

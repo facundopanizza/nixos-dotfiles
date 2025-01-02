@@ -12,7 +12,7 @@
       ./apps/nix-alien
       ./apps/stylix
       ./apps/docker
-      ./apps/gpu-passthrough
+#      ./apps/gpu-passthrough
       inputs.home-manager.nixosModules.default
     ];
 
@@ -20,14 +20,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  systemd.tmpfiles.rules = [
-    "f /dev/shm/looking-glass 0660 facundo qemu-libvirtd -"
-  ];
+#  systemd.tmpfiles.rules = [
+#    "f /dev/shm/looking-glass 0660 facundo qemu-libvirtd -"
+#  ];
 
-  specialisation."VFIO".configuration = {
-    system.nixos.tags = [ "with-vfio" ];
-    vfio.enable = true;
-  };
+#  specialisation."VFIO".configuration = {
+#    system.nixos.tags = [ "with-vfio" ];
+#    vfio.enable = true;
+#  };
 
   networking.hostName = "nixos"; # Define your hostname.
 
@@ -134,6 +134,10 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  documentation.man = {
+    man-db.enable = true;
+  };
 
   # Nvidia drivers
   hardware.graphics = {
@@ -243,10 +247,11 @@
     networkmanagerapplet
     brightnessctl
     bibata-cursors
+    hyprland-qtutils
   ];
 
   virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+#  programs.virt-manager.enable = true;
 
 #  xdg.portal.enable = true;
 #  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
