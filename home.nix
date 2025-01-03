@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -138,7 +138,10 @@
       gparted
       kubectl
       slack
-      orca-slicer
+      (import inputs.orcaslicerpkgs {
+        system = pkgs.system;
+        config = config.nixpkgs.config;
+      }).orca-slicer
   ];
 
 # basic configuration of git, please change to your own
