@@ -138,10 +138,14 @@
       gparted
       kubectl
       slack
+      freecad
+      inkscape
       (import inputs.orcaslicerpkgs {
         system = pkgs.system;
         config = config.nixpkgs.config;
       }).orca-slicer
+      dig
+      azure-cli
   ];
 
 # basic configuration of git, please change to your own
