@@ -12,6 +12,22 @@
   home.username = "facundo";
   home.homeDirectory = "/home/facundo";
 
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    documents = "${config.home.homeDirectory}/Documents";
+    download = "${config.home.homeDirectory}/Downloads";
+    videos = "${config.home.homeDirectory}/Videos";
+    pictures = "${config.home.homeDirectory}/Pictures";
+    music = "${config.home.homeDirectory}/Music";
+    desktop = "${config.home.homeDirectory}/Desktop";
+    templates = "${config.home.homeDirectory}/Templates";
+    publicShare = "${config.home.homeDirectory}/Public";
+    extraConfig = {
+      XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/Pictures/Screenshots";
+    };
+  };
+
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "python3.13-ecdsa-0.19.1"

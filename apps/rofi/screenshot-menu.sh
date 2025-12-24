@@ -1,25 +1,25 @@
 #!/bin/bash
 
+# Screenshot directory
+SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
+mkdir -p "$SCREENSHOT_DIR"
+
 # Define the options
 options="Screen\nWindow\nRegion"
 
 # Display the Rofi menu and get the chosen option
-chosen=$(echo -e "$options" | rofi -dmenu -i -p "Choose the type of Screenshot:")
+chosen=$(echo -e "$options" | rofi -dmenu -i -p "Screenshot:")
 
 # Execute a command based on the chosen option
 case $chosen in
     "Screen")
-        hyprshot -m output
+        hyprshot -m output -o "$SCREENSHOT_DIR"
         ;;
     "Window")
-        hyprshot -m window
+        hyprshot -m window -o "$SCREENSHOT_DIR"
         ;;
     "Region")
-        hyprshot -m region
-        ;;
-    *)
-        # In case of an invalid option or canceling
-        echo "No valid option chosen"
+        hyprshot -m region -o "$SCREENSHOT_DIR"
         ;;
 esac
 
