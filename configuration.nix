@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./apps/nvim
-      ./apps/nix-alien
+      # ./apps/nix-alien
       ./apps/stylix
       ./apps/docker
 #      ./apps/gpu-passthrough
