@@ -48,6 +48,13 @@
     QT_STYLE_OVERRIDE = "kvantum-dark";
     XDG_CURRENT_DESKTOP = "Hyprland";
     GDK_BACKEND = "wayland";
+    GTK_USE_PORTAL = "1";
+  };
+
+  # XDG portal for dark theme detection
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   # Enable automatic garbage collection

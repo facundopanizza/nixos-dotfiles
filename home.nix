@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, hostname, ... }:
+{ config, pkgs, lib, inputs, hostname, ... }:
 
 {
   imports = [
@@ -179,6 +179,16 @@
     enable = true;
     settings.user.name = "Facundo Panizza";
     settings.user.email = "facundo@panizza.dev";
+  };
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = lib.mkForce "prefer-dark";
+        gtk-theme = lib.mkForce "Adwaita-dark";
+      };
+    };
   };
 
   programs.zellij = {
