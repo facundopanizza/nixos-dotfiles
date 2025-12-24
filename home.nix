@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, hostname, ... }:
 
 {
   imports = [
@@ -13,8 +13,10 @@
   home.homeDirectory = "/home/facundo";
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "python3.13-ecdsa-0.19.1"
+  ];
 
-  home.file.".config/hypr/hyprland.conf".source = ./apps/hyprland/hyprland.conf;
   home.file.".config/kitty/kitty.conf".source = ./apps/kitty/kitty.conf;
   home.file."Wallpapers".source = ./wallpapers;
 #  home.file.".config/kitty/themes".source = ./apps/kitty/themes;
@@ -34,6 +36,17 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
+      # Restore last directory
+      if test -f ~/.local/share/fish/last_dir
+        cd (cat ~/.local/share/fish/last_dir)
+      end
+
+      # Save directory on each change
+      function __save_dir --on-variable PWD
+        mkdir -p ~/.local/share/fish
+        echo $PWD > ~/.local/share/fish/last_dir
+      end
+
       test -z $ZELLIJ; and zellij;
       set fish_greeting
     '';
@@ -68,7 +81,23 @@
 
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
+    enableDefaultConfig = false;
+    matchBlocks = {
+      "*" = {
+        addKeysToAgent = "yes";
+        identitiesOnly = true;
+      };
+      "github.com" = {
+        hostname = "github.com";
+        user = "git";
+        identityFile = "~/.ssh/id_rsa";
+      };
+      "github-personal.com" = {
+        hostname = "github.com";
+        user = "git";
+        identityFile = "~/.ssh/id_rsa_personal";
+      };
+    };
   };
 
 #  programs.looking-glass-client.enable = true;
@@ -97,12 +126,12 @@
       devbox
       imagemagick
       loupe
-      whatsapp-for-linux
+      wasistlos
       davinci-resolve
       obs-studio
       anki
       nwg-look
-      insomnia
+      yaak
 
       # For dolphin
       kdePackages.dolphin
@@ -110,7 +139,7 @@
       kdePackages.qtsvg
       kdePackages.kio-fuse
       kdePackages.kio-extras
-      ark # File extractor for dolphin
+      kdePackages.ark # File extractor for dolphin
       # End for Dolphin
 
       audacity
@@ -128,8 +157,7 @@
       zathura
       btop
       openssl
-      squirreldisk
-      stremio
+      # squirreldisk # marked as broken
       mpv
       heroic
       terraform
@@ -142,13 +170,15 @@
       inkscape
       dig
       azure-cli
+      awscli2
+      claude-code
   ];
 
 # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "Facundo Panizza";
-    userEmail = "facundo@panizza.dev";
+    settings.user.name = "Facundo Panizza";
+    settings.user.email = "facundo@panizza.dev";
   };
 
   programs.zellij = {

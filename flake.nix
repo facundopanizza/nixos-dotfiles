@@ -4,42 +4,40 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    orcaslicerpkgs = {
-      url = "github:nixos/nixpkgs/4ae2e647537bcdbb82265469442713d066675275";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    stylix = {
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixvim, stylix, ... }@inputs: 
+  outputs = { nixpkgs, home-manager, stylix, ... }@inputs:
     let
       system = "x86_64-linux";
     in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = system;
-
+      # Laptop: Intel CPU + NVIDIA GPU
+      nixosConfigurations.amaterasu = nixpkgs.lib.nixosSystem {
+        inherit system;
         modules = [
-          ./configuration.nix
-          nixvim.nixosModules.nixvim
+          ./hosts/amaterasu
           stylix.nixosModules.stylix
         ];
+        specialArgs = { inherit inputs; };
+      };
 
-        specialArgs = { 
-          inherit inputs;
-          stylix = stylix;
-        };
+      # Desktop: AMD CPU + AMD GPU
+      nixosConfigurations.harakiri = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/harakiri
+          stylix.nixosModules.stylix
+        ];
+        specialArgs = { inherit inputs; };
       };
     };
 }

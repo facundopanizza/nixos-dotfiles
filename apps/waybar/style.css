@@ -1,0 +1,168 @@
+/* Catppuccin Macchiato colors */
+@define-color base #24273a;
+@define-color surface0 #363a4f;
+@define-color surface1 #494d64;
+@define-color text #cad3f5;
+@define-color subtext #a5adcb;
+@define-color blue #8aadf4;
+@define-color lavender #b7bdf8;
+@define-color green #a6da95;
+@define-color peach #f5a97f;
+@define-color red #ed8796;
+@define-color mauve #c6a0f6;
+@define-color yellow #eed49f;
+
+* {
+  font-family: "FiraCode Nerd Font Mono", monospace;
+  font-size: 14px;
+  font-weight: 500;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+window#waybar > box {
+  background: transparent;
+}
+
+/* Islands base style */
+.modules-left,
+.modules-center,
+.modules-right {
+  background-color: @base;
+  border-radius: 16px;
+  padding: 4px 12px;
+  margin: 4px 0;
+}
+
+/* Workspaces */
+#workspaces {
+  background: transparent;
+  padding: 0;
+}
+
+#workspaces button {
+  color: @subtext;
+  background: transparent;
+  padding: 4px 12px;
+  margin: 2px 2px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+  color: @text;
+  background: @surface0;
+}
+
+#workspaces button.active {
+  color: @base;
+  background: @blue;
+}
+
+#workspaces button.urgent {
+  color: @base;
+  background: @red;
+}
+
+/* Clock */
+#clock {
+  color: @text;
+  background: transparent;
+  padding: 4px 12px;
+}
+
+/* Right modules */
+#tray,
+#pulseaudio,
+#network,
+#battery,
+#custom-power {
+  color: @text;
+  background: transparent;
+  padding: 4px 12px;
+  margin: 2px 0;
+}
+
+#tray {
+  padding: 4px 8px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* Pulseaudio */
+#pulseaudio {
+  color: @lavender;
+}
+
+#pulseaudio.muted {
+  color: @subtext;
+}
+
+/* Network */
+#network {
+  color: @blue;
+}
+
+#network.disconnected {
+  color: @subtext;
+}
+
+/* Battery */
+#battery {
+  color: @green;
+}
+
+#battery.warning {
+  color: @yellow;
+}
+
+#battery.critical {
+  color: @red;
+  animation: blink 1s linear infinite;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+/* Power button */
+#custom-power {
+  color: @red;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: 4px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+#custom-power:hover {
+  background: @surface0;
+}
+
+/* Animations */
+@keyframes blink {
+  to {
+    color: @text;
+  }
+}
+
+/* Tooltip */
+tooltip {
+  background: @base;
+  border: 2px solid @surface1;
+  border-radius: 12px;
+}
+
+tooltip label {
+  color: @text;
+  padding: 8px;
+}

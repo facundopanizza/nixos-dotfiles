@@ -19,14 +19,12 @@
       };
 
       monospace = {
-        # package = pkgs.nerd-fonts.fira-code;
-        # name = "FiraCode Nerd Font";
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans Mono";
+        package = pkgs.nerd-fonts.fira-code;
+        name = "FiraCode Nerd Font";
       };
 
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
     };
@@ -34,6 +32,7 @@
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata Modern Ice";
+      size = 24;
     };
   };
 }
