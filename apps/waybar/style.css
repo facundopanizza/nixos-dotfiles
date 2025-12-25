@@ -57,6 +57,10 @@ window#waybar > box {
   background: @surface0;
 }
 
+#workspaces button.empty {
+  color: @surface1;
+}
+
 #workspaces button.active {
   color: @base;
   background: @blue;

@@ -12,6 +12,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Use latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Plymouth for nicer boot splash and LUKS prompt (theme set by Stylix)
   boot.plymouth.enable = true;
   boot.initrd.systemd.enable = true;  # Required for Plymouth with LUKS
